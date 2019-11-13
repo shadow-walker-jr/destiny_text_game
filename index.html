@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" href="style.css">
+	<link rel='stylesheet' href='http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css'>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src='http://code.jquery.com/ui/1.10.3/jquery-ui.js'></script>
+	<title>Earth</title>
+</head>
+<body data-enemyType="fallen">
+	<div class='main'>
+        <h1>Earth</h1>
+		<div class="gameInfo">
+    		<div class="enemyInfoPic">
+        		<div class="enemyInfo">
+		    		<span style="display: inline;">Name:  </span style="display: inline;"><span id="enemyName"></span> <br><br>
+		    		<span style="display: inline;">Health:  </span><span style="display: inline;" id="enemyHealth"></span> <br><br>
+        		</div>
+        		<div class='enemyPic'>
+        			<img class="fallen" id='dregPic' src='https://github.com/shadow-walker-jr/destiny_text_game/blob/master/fallen_dreg.jpg?raw=true'/>
+        			<img class="fallen" id='vandalPic' src='https://github.com/shadow-walker-jr/destiny_text_game/blob/master/fallen_vandal.jpg?raw=true'/>
+        			<img class="fallen" id='captainPic' src="https://github.com/shadow-walker-jr/destiny_text_game/blob/master/fallen_captain.jpg?raw=true"/>
+                    <img class="fallen" id='shankPic' src="https://github.com/shadow-walker-jr/destiny_text_game/blob/master/fallen_shank.jpg?raw=true"/>
+                    <img class="fallen" id='servitorPic' src="https://github.com/shadow-walker-jr/destiny_text_game/blob/master/fallen_servitor.jpg?raw=true"/>
+
+                    <img class="fallenBoss" id='sepiksPrime' src="https://github.com/shadow-walker-jr/destiny_text_game/blob/master/Sepiks_Prime.png?raw=true"/>
+                    <img class="fallenBoss" id='riksisArchon' src="https://github.com/shadow-walker-jr/destiny_text_game/blob/master/Riksis_Devil_Archon.jpg?raw=true"/>
+                    <img class="fallenBoss" id='skolas' src="https://github.com/shadow-walker-jr/destiny_text_game/blob/master/Skolas.jpg?raw=true"/>
+        		</div>
+    		</div>
+			<div class="playerInfo">
+				<button id="hitEnemy" onclick="HitEnemyPre()">Hit Enemy</button>
+                <button id='hide' onclick="Hide()" style="display: none;">Hide</button>
+				<button id="runAway" onclick="main()">Run Away</button>
+				<p id='damageInfo'></p>
+	    		<span style="display: inline;">Player Healh:  </span><span style="display: inline;" id="PlayerHealth"></span> <br><br>
+	    		<span style="display: inline;">Enemies Killed:  </span><span style="display: inline;" id="enemyKilled"></span>
+	    	</div>
+    	</div>
+    	<div class="inventory">
+    		
+    		<div class="inventorySlots">
+                <div id="title">
+                    <h2>   Inventory:</h2> <br><br>
+                </div>
+                <div class="slotBoxLeft">
+                    <div class="itemSlots">
+                        <div class="slot" id="slot0" data-slotId='0'>
+                            
+        			    </div>
+                        <div class="slot" id="slot1" data-slotId='1'>
+                            
+        			    </div>
+                        <div class="slot" id="slot2" data-slotId='2'>
+                            
+        			    </div>
+                        <div class="slot" id="slot3" data-slotId='3'>
+                            
+                        </div>
+                        <div class="slot" id="slot4" data-slotId='4'>
+
+                        </div>
+                        <div class="slot" id="slot5" data-slotId='5'>
+
+                        </div>
+                        <div class="slot" id="slot6" data-slotId='6'>
+
+                        </div>
+                        <div class="slot" id="slot7" data-slotId='7'>
+
+                        </div>
+                        <div class="slot" id="slot8" data-slotId='8'>
+
+                        </div>
+                        <div class="slot" id="slot9" data-slotId='9'>
+
+                        </div>
+                        <div class="slot" id="slot10" data-slotId='10'>
+
+                        </div>
+                        <div class="slot" id="slot11" data-slotId='11'>
+
+                        </div>
+                        <div class="slot" id="slot12" data-slotId='12'>
+
+                        </div>
+                        <div class="slot" id="slot13" data-slotId='13'>
+
+                        </div>
+                        <div class="slot" id="slot14" data-slotId='14'>
+
+                        </div>
+                        <div class="slot" id="slot15" data-slotId='15'>
+
+                        </div>
+                        <div class="slot" id="slot16" data-slotId='16'>
+
+                        </div>
+                        <div class="slot" id="slot17" data-slotId='17'>
+
+                        </div>
+                        <div class="slot" id="slot18" data-slotId='18'>
+
+                        </div>
+                        <div class="slot" id="slot19" data-slotId='19'>
+
+                        </div>
+                        <div class="slot" id="slot20" data-slotId='20'>
+
+                        </div>
+                    </div>
+                </div>
+    		</div>
+            <div class="seperator">
+                p
+            </div>
+            <div class="matsInventory">
+                <div>
+                    <img style="display: inline;" id='first' src="https://github.com/shadow-walker-jr/destiny_text_game/blob/master/Fallen_Shiplinks.jpg?raw=true" alt="Fallen Shiplink">
+                    <span class="fallen" id="shiplinkCount" style="display: inline;">0</span>
+                </div>
+                <div>
+                    <img style="display: inline;" src="https://github.com/shadow-walker-jr/destiny_text_game/blob/master/Hive_Rune.jpg?raw=true" alt="Hive Rune">
+                    <span data-matCount="0" id="runeCount" style="display: inline;">0</span>
+                </div>
+                <div>
+                    <img style="display: inline;" src="https://github.com/shadow-walker-jr/destiny_text_game/blob/master/Cabal_Weapon_Part.jpg?raw=true" alt="Cabal Weapon Part">
+                    <span class="cabal" id="weaponPartCount" style="display: inline;">0</span>
+                </div>
+                <div>
+                    <img style="display: inline;" src="https://github.com/shadow-walker-jr/destiny_text_game/blob/master/Vex_Mind_Core.jpg?raw=true" alt="Vex Mind Core">
+                    <span data-matCount="0" id="mindCoreCount" style="display: inline;">0</span>
+                </div>
+                <div>
+                    <img style="display: inline;" src="https://github.com/shadow-walker-jr/destiny_text_game/blob/master/Taken_Chronoshards.jpg?raw=true" alt="Taken Chronoshards">
+                    <span data-matCount="0" id="chronoshardCount" style="display: inline;">0</span>
+                </div>
+            </div>
+    	</div>
+        <div class="gear">
+            <div class="gear2">
+                <img class="weapon" data-equipedItemType="weapon" data-statType="Atk:" data-itemStat="10" id="Husk of the Pit" src="https://github.com/shadow-walker-jr/destiny_text_game/blob/master/husk_of_the_pit.jpg?raw=true">
+                <img class='armor' data-equipedItemType="helmet" data-statType="Def:" data-itemStat="2" id="Logic Singer III" src="https://github.com/shadow-walker-jr/destiny_text_game/blob/master/white_helmet_start.jpg?raw=true">
+                <img class='armor' data-equipedItemType="gauntlet" data-statType="Def:" data-itemStat="2" id="Logic Singer" src="https://github.com/shadow-walker-jr/destiny_text_game/blob/master/white_gauntlet_start.jpg?raw=true">
+                <img class='armor' data-equipedItemType="chest" data-statType="Def:" data-itemStat="4" id="Logic Singer" src="https://github.com/shadow-walker-jr/destiny_text_game/blob/master/white_chest_start.jpg?raw=true">
+                <img class='armor' data-equipedItemType="boot" data-statType="Def:" data-itemStat="2" id="Logic Singer" src="https://github.com/shadow-walker-jr/destiny_text_game/blob/master/white_boot_start.jpg?raw=true">
+            </div>
+            <div class="stats">
+                <br><br><br><br><br>
+                <span style="display: inline;">Damage:   </span><span style="display: inline;" id='playerDamage'>10</span> <br><br>
+                <span style="display: inline;">Defence:   </span><span style="display: inline;" id='playerDefence'>10</span>
+            </div>
+        </div>
+	</div>
+	<div class='armorDialog'>
+		
+	</div> <br><br><br><br>
+	<button id='saveGame' onclick="SaveGame()">Save</button>
+    <button id='hide' onclick="Hide()" style="display: none;">Hide</button>
+	<script src="script.js"></script>
+</body>
+</html>
